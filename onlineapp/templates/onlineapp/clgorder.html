@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>college</title>
+    <script>
+</script>
+</head>
+<body>
+<center>
+    <table border="1">
+<!--{% block caption %}
+        <caption>{{caption}}</caption>
+        {% endblock %}-->
+
+{% for i in c %}
+<tr>
+
+    <td>{{i.acronym}}</td>
+    <td>{{i.student__name}}</td>
+    <td>{{i.student__mocktest1__total}}</td>
+
+</tr>
+        {% endfor %}
+    </table>
+</center>
+</body>
+</html>

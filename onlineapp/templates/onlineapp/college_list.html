@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% include 'onlineapp/css.html' %}
+
+     <link href="css/bootstrap.min.css"rel="stylesheet"media="screen">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>college</title>
+    <script>
+</script>
+</head>
+<body>
+
+    <form>
+        <fieldset>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'onlineapp:logout'%}">Log Out</a>
+      <center> <h3>Colleges</h3></center>
+            {% if 'onlineapp.add_college' in user_permissions %}
+            <div class="form-group">
+                <button><a href="{% url 'onlineapp:add_colleges'%}">Add College</a></button>
+            </div>
+            {% endif %}
+            <br>
+            <br>
+
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Acronym</th>
+            <th>Location</th>
+            <th>Action</th>
+        </tr>
+{% for i in jails %}
+<tr>
+
+    <td><a href="{% url 'onlineapp:college_detail_html' i.id %}">{{i.name}}</a></td>
+        <td>{{i.acronym}}</td>
+    <td>{{i.location}}</td>
+    {% if 'onlineapp.change_college' in user_permissions and 'onlineapp.delete_college' in user_permissions %}
+        <td>
+                <a href="{% url 'onlineapp:edit_college' i.id %}">Edit</a> |
+                <a href="{% url 'onlineapp:delete_college' i.id %}">Delete</a>
+            </td>
+    {% endif %}
+      </tr>
+        {% endfor %}
+    </table>
+             </fieldset>
+    </form>
+
+</body>
+</html>

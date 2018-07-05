@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    {% include 'onlineapp/css.html' %}
+
+     <link href="css/bootstrap.min.css"rel="stylesheet"media="screen">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Student</title>
+    <script>
+</script>
+</head>
+<body>
+   <form>
+        <fieldset>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'onlineapp:logout'%}">Log Out</a>
+               <center><h3>Students in {{college.name}}</h3></center>
+             {% if 'onlineapp.add_student' in user_permissions %}
+             <div class="form-group">
+                <button><a href="{% url 'onlineapp:college_detail.html' college.id %}">Add Student</a></button>
+            </div>
+            {% endif %}
+            <br>
+            <br>
+
+
+            <table class="table">
+<tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>DB_folder</th>
+    <th>Dropped Out</th>
+    <th>Marks</th>
+    <th>Action</th>
+</tr>
+{% for i in students %}
+<tr>
+
+    <td>{{i.name}}</td>
+    <td>{{i.email}}</td>
+    <td>{{i.db_folder}}</td>
+    <td>{{i.dropped_out}}</td>
+    <td>{{i.mocktest1.total}}</td>
+{% if 'onlineapp.change_student' in user_permissions and 'onlineapp.delete_student' in user_permissions %}
+          <td>
+                <a href="{% url 'onlineapp:edit_student' i.college.id i.id %}">Edit</a> |
+                <a href="{% url 'onlineapp:delete_student' i.college.id i.id %}">Delete</a>
+            </td>
+    {% endif %}
+</tr>
+        {% endfor %}
+    </table>
+            </fieldset>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>college</title>
+    <script>
+</script>
+</head>
+<body>
+<center>
+    <table border="1">
+<a href="{% url 'onlineapp:logout'%}">Log Out</a>
+
+{% for i in jails %}
+<tr>
+
+    <td>{{i.name}}</td>
+    <td>{{i.acronym}}</td>
+    <td>{{i.location}}</td>
+
+</tr>
+        {% endfor %}
+    </table>
+</center>
+</body>
+</html>

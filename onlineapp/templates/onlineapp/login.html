@@ -1,0 +1,26 @@
+{% extends 'onlineapp/base.html' %}
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-fixed-top bg-primary">
+    <a class="navbar-brand" href="#">Online App</a>
+    <!--{% if request.user.is_authenticated-->
+</nav>
+<div class="container">
+    <div class="col-xs-6 col-xs-offset-3">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Log in</legend>
+                <div class="form-group">
+                    <label for="{{ form.user_name.id_for_label}}">Enter Username</label>
+                    {{ form.username}}
+                </div>
+                 <div class="forlm-group">
+                    <label for="{{ form.password.id_for_label}}">Enter Password</label>
+                    {{ form.password}}
+                </div>
+                <input type="submit" value="Login">
+            </fieldset>
+        </form>
+    </div>
+</div>
+{% endblock %}

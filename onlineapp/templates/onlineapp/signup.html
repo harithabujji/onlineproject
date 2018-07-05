@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+      {% include 'onlineapp/css.html' %}
+
+    <title>Signup</title>
+</head>
+<body>
+<div class="container">
+    <div class="col-xs-6 col-xs-offset-3">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Sign Up</legend>
+                <div class="form-group">
+                    <label for="{{ form.first_name.id_for_label }}">Enter Firstname</label>
+                    {{ form.first_name }}</div>
+                <div class="from-group">
+                    <label for="{{ form.last_name.id_for_label}}">Enter Lastname</label>
+                    {{ form.last_name }}
+                </div>
+                <div class="from-group">
+                    <label for="{{ form.username.id_for_label}}">Enter Username</label>
+                    {{ form.username}}
+                </div>
+                 <div class="from-group">
+                    <label for="{{ form.password.id_for_label}}">Enter Password</label>
+                    {{ form.password}}
+                </div>
+                <input type="submit" value="Signup">
+            </fieldset>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="col-xs-6 col-xs-offset-3">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Add College</legend>
+                <div class="form-group">
+                    <label for="{{ form.name.id_for_label }}">Enter Name</label>
+                    {{ form.name }}</div>
+                <div class="from-group">
+                    <label for="{{ form.location.id_for_label}}">Enter location</label>
+                    {{ form.location }}
+                </div>
+                <div class="from-group">
+                    <label for="{{ form.acronym.id_for_label}}">Enter acronym</label>
+                    {{ form.acronym}}
+                </div>
+                 <div class="from-group">
+                    <label for="{{ form.contact.id_for_label}}">Enter contact</label>
+                    {{ form.contact}}
+                </div>
+                <input type="submit" value="submit">
+            </fieldset>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>college</title>
+    <script>
+function myFunction(marks) {
+    document.getElementById("b").innerHTML = marks;
+}
+</script>
+</head>
+<body>
+<center>
+    <table border="1">
+<!--{% block caption %}
+        <caption>{{caption}}</caption>
+        {% endblock %}-->
+
+{% for i in c %}
+<tr>
+
+    <td>{{i.student__name}}</td>
+    <td>{{i.problem1}}</td>
+    <td>{{i.problem2}}</td>
+    <td>{{i.problem3}}</td>
+    <td>{{i.problem4}}</td>
+     <td><button id="b" type="button" onclick="alert({{i.total}})">Total</button>
+     </td>
+</tr>
+        {% endfor %}
+    </table>
+</center>
+</body>
+</html>

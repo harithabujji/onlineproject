@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<div class="container">
+    <div class="col-xs-6 col-xs-offset-3">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Add Student</legend>
+                <div class="form-group">
+                    <label for="{{ form.name.id_for_label }}">Enter Name</label>
+                    {{ form.name }}</div>
+                <div class="from-group">
+                    <label for="{{ form.email.id_for_label}}">Enter email</label>
+                    {{ form.email }}
+                </div>
+                <div class="from-group">
+                    <label for="{{ form.db_folder.id_for_label}}">Enter db_folder</label>
+                    {{ form.db_folder}}
+                </div>
+                 <div class="from-group">
+                    <label for="{{ form.dropped_out.id_for_label}}">Enter droppedout</label>
+                    {{ form.dropped_out}}
+                </div>
+                <input type="submit" value="submit">
+            </fieldset>
+        </form>
+    </div>
+</div>-->
+
+<form method="post">
+    {% csrf_token %}
+    {{ student_form.name }}
+    {{ student_form.email }}
+    {{ student_form.db_folder }}
+    {{ student_form.dropped_out }}
+    {{ test_form.as_p }}
+
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
